@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cookie Policy - LinguaFlow</title>
+    <meta name="description" content="Learn about how LinguaFlow uses cookies and similar technologies on our website and mobile application.">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="/images/favicon.png">
+    <link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #3b82f6;
+            --primary-dark: #2563eb;
+            --secondary: #8b5cf6;
+            --accent: #10b981;
+            --dark: #0f172a;
+            --gray: #64748b;
+            --light: #f8fafc;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--light);
+            color: var(--dark);
+            line-height: 1.7;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 1rem 2rem;
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 700;
+            font-size: 1.5rem;
+        }
+
+        .logo img {
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--gray);
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .nav-cta {
+            background: var(--primary);
+            color: white !important;
+            padding: 0.75rem 1.5rem;
+            border-radius: 50px;
+            transition: background 0.2s, transform 0.2s !important;
+        }
+
+        .nav-cta:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+        }
+
+        /* Header */
+        .page-header {
+            padding: 8rem 2rem 3rem;
+            background: linear-gradient(135deg, #eff6ff 0%, #f0fdf4 50%, #faf5ff 100%);
+            text-align: center;
+        }
+
+        .page-header h1 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, var(--dark) 0%, var(--primary) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .page-header .last-updated {
+            color: var(--gray);
+            font-size: 0.95rem;
+        }
+
+        /* Content */
+        .content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+            background: white;
+        }
+
+        .content h2 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin: 2.5rem 0 1rem;
+            color: var(--dark);
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--light);
+        }
+
+        .content h2:first-of-type {
+            margin-top: 0;
+        }
+
+        .content h3 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin: 2rem 0 0.75rem;
+            color: var(--dark);
+        }
+
+        .content p {
+            margin-bottom: 1rem;
+            color: #334155;
+        }
+
+        .content ul, .content ol {
+            margin: 1rem 0 1.5rem 1.5rem;
+            color: #334155;
+        }
+
+        .content li {
+            margin-bottom: 0.75rem;
+        }
+
+        .content a {
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        .content a:hover {
+            text-decoration: underline;
+        }
+
+        /* Cookie Table */
+        .cookie-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+            font-size: 0.95rem;
+        }
+
+        .cookie-table th,
+        .cookie-table td {
+            padding: 1rem;
+            text-align: left;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .cookie-table th {
+            background: var(--light);
+            font-weight: 600;
+            color: var(--dark);
+        }
+
+        .cookie-table tr:hover {
+            background: #f8fafc;
+        }
+
+        .cookie-type {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .cookie-type.essential {
+            background: #dcfce7;
+            color: #166534;
+        }
+
+        .cookie-type.functional {
+            background: #dbeafe;
+            color: #1e40af;
+        }
+
+        .cookie-type.analytics {
+            background: #fef3c7;
+            color: #92400e;
+        }
+
+        .cookie-type.marketing {
+            background: #fce7f3;
+            color: #9d174d;
+        }
+
+        /* Info Box */
+        .info-box {
+            background: linear-gradient(135deg, #eff6ff, #f0fdf4);
+            border-left: 4px solid var(--primary);
+            padding: 1.5rem;
+            border-radius: 0 12px 12px 0;
+            margin: 1.5rem 0;
+        }
+
+        .info-box p {
+            margin: 0;
+            color: var(--dark);
+        }
+
+        /* Contact Box */
+        .contact-box {
+            background: var(--light);
+            border-radius: 16px;
+            padding: 2rem;
+            margin: 2rem 0;
+            text-align: center;
+        }
+
+        .contact-box h3 {
+            margin-top: 0;
+            margin-bottom: 1rem;
+        }
+
+        .contact-box a {
+            display: inline-block;
+            background: var(--primary);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            margin-top: 1rem;
+            transition: background 0.2s;
+        }
+
+        .contact-box a:hover {
+            background: var(--primary-dark);
+            text-decoration: none;
+        }
+
+        /* Table of Contents */
+        .toc {
+            background: var(--light);
+            border-radius: 16px;
+            padding: 1.5rem 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .toc h2 {
+            font-size: 1.1rem;
+            margin: 0 0 1rem 0;
+            padding: 0;
+            border: none;
+        }
+
+        .toc ol {
+            margin: 0;
+            padding-left: 1.25rem;
+        }
+
+        .toc li {
+            margin-bottom: 0.5rem;
+        }
+
+        .toc a {
+            color: var(--gray);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .toc a:hover {
+            color: var(--primary);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 3rem 2rem;
+            text-align: center;
+        }
+
+        footer p {
+            color: #64748b;
+            font-size: 0.875rem;
+        }
+
+        footer a {
+            color: #94a3b8;
+            text-decoration: none;
+            margin: 0 1rem;
+        }
+
+        footer a:hover {
+            color: white;
+        }
+
+        .footer-links {
+            margin-bottom: 1.5rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .page-header h1 {
+                font-size: 2rem;
+            }
+
+            .content {
+                padding: 2rem 1rem;
+            }
+
+            .cookie-table {
+                font-size: 0.85rem;
+            }
+
+            .cookie-table th,
+            .cookie-table td {
+                padding: 0.75rem 0.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <a href="/" class="logo">
+                <img src="/images/logo.png" alt="LinguaFlow">
+                LinguaFlow
+            </a>
+            <div class="nav-links">
+                <a href="/#features">Features</a>
+                <a href="/#pricing">Pricing</a>
+                <a href="/privacy.html">Privacy</a>
+                <a href="/terms.html">Terms</a>
+                <a href="/#download" class="nav-cta">Download App</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header -->
+    <header class="page-header">
+        <h1>Cookie Policy</h1>
+        <p class="last-updated">Last Updated: December 3, 2024</p>
+    </header>
+
+    <!-- Content -->
+    <main class="content">
+        <div class="toc">
+            <h2>Table of Contents</h2>
+            <ol>
+                <li><a href="#what-are-cookies">What Are Cookies?</a></li>
+                <li><a href="#how-we-use">How We Use Cookies</a></li>
+                <li><a href="#types-of-cookies">Types of Cookies We Use</a></li>
+                <li><a href="#cookie-list">Detailed Cookie List</a></li>
+                <li><a href="#third-party">Third-Party Cookies</a></li>
+                <li><a href="#mobile-app">Cookies in Our Mobile App</a></li>
+                <li><a href="#managing-cookies">Managing Your Cookie Preferences</a></li>
+                <li><a href="#browser-settings">Browser-Specific Instructions</a></li>
+                <li><a href="#do-not-track">Do Not Track Signals</a></li>
+                <li><a href="#updates">Updates to This Policy</a></li>
+                <li><a href="#contact">Contact Us</a></li>
+            </ol>
+        </div>
+
+        <h2 id="what-are-cookies">1. What Are Cookies?</h2>
+        <p>Cookies are small text files that are stored on your device (computer, tablet, or mobile phone) when you visit a website. They are widely used to make websites work more efficiently and to provide information to website owners.</p>
+        <p>Similar technologies include:</p>
+        <ul>
+            <li><strong>Web beacons</strong> (also called pixel tags or clear GIFs): Small graphic images embedded in web pages or emails</li>
+            <li><strong>Local storage</strong>: Data stored in your browser that persists even after you close the browser</li>
+            <li><strong>Session storage</strong>: Data stored in your browser that is cleared when you close the browser tab</li>
+            <li><strong>Device identifiers</strong>: Unique identifiers associated with your mobile device</li>
+        </ul>
+        <p>This policy covers all these technologies, collectively referred to as "cookies."</p>
+
+        <h2 id="how-we-use">2. How We Use Cookies</h2>
+        <p>We use cookies for the following purposes:</p>
+        <ul>
+            <li><strong>Authentication:</strong> To recognize you when you sign in and keep you logged in as you navigate our service</li>
+            <li><strong>Security:</strong> To protect your account and detect suspicious activity</li>
+            <li><strong>Preferences:</strong> To remember your settings and preferences (such as language and display preferences)</li>
+            <li><strong>Progress tracking:</strong> To save your learning progress, streak data, and lesson completion status</li>
+            <li><strong>Analytics:</strong> To understand how you use our service and identify areas for improvement</li>
+            <li><strong>Performance:</strong> To monitor and improve the speed and performance of our service</li>
+        </ul>
+
+        <h2 id="types-of-cookies">3. Types of Cookies We Use</h2>
+
+        <h3>Essential Cookies</h3>
+        <p>These cookies are strictly necessary for the operation of our service. They enable core functionality such as security, authentication, and accessibility. You cannot opt out of these cookies as the service would not function without them.</p>
+
+        <h3>Functional Cookies</h3>
+        <p>These cookies enable enhanced functionality and personalization, such as remembering your language preferences, display settings, and custom vocabulary lists. While not strictly necessary, disabling these may affect your experience.</p>
+
+        <h3>Analytics Cookies</h3>
+        <p>These cookies help us understand how visitors interact with our service by collecting and reporting information anonymously. This helps us improve our service and identify technical issues.</p>
+
+        <h3>Marketing Cookies</h3>
+        <p>These cookies may be set through our site by our advertising partners. They may be used to build a profile of your interests and show you relevant ads on other sites. We currently do not use marketing cookies, but if we do in the future, we will update this policy and obtain your consent where required.</p>
+
+        <h2 id="cookie-list">4. Detailed Cookie List</h2>
+        <table class="cookie-table">
+            <thead>
+                <tr>
+                    <th>Cookie Name</th>
+                    <th>Type</th>
+                    <th>Purpose</th>
+                    <th>Duration</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>__session</td>
+                    <td><span class="cookie-type essential">Essential</span></td>
+                    <td>Maintains your logged-in session</td>
+                    <td>Session</td>
+                </tr>
+                <tr>
+                    <td>auth_token</td>
+                    <td><span class="cookie-type essential">Essential</span></td>
+                    <td>Authentication token for secure access</td>
+                    <td>30 days</td>
+                </tr>
+                <tr>
+                    <td>csrf_token</td>
+                    <td><span class="cookie-type essential">Essential</span></td>
+                    <td>Prevents cross-site request forgery attacks</td>
+                    <td>Session</td>
+                </tr>
+                <tr>
+                    <td>user_preferences</td>
+                    <td><span class="cookie-type functional">Functional</span></td>
+                    <td>Stores your app settings and preferences</td>
+                    <td>1 year</td>
+                </tr>
+                <tr>
+                    <td>language_pref</td>
+                    <td><span class="cookie-type functional">Functional</span></td>
+                    <td>Remembers your interface language choice</td>
+                    <td>1 year</td>
+                </tr>
+                <tr>
+                    <td>learning_progress</td>
+                    <td><span class="cookie-type functional">Functional</span></td>
+                    <td>Caches your learning progress locally</td>
+                    <td>30 days</td>
+                </tr>
+                <tr>
+                    <td>_ga</td>
+                    <td><span class="cookie-type analytics">Analytics</span></td>
+                    <td>Google Analytics - distinguishes unique users</td>
+                    <td>2 years</td>
+                </tr>
+                <tr>
+                    <td>_ga_*</td>
+                    <td><span class="cookie-type analytics">Analytics</span></td>
+                    <td>Google Analytics - maintains session state</td>
+                    <td>2 years</td>
+                </tr>
+                <tr>
+                    <td>_gid</td>
+                    <td><span class="cookie-type analytics">Analytics</span></td>
+                    <td>Google Analytics - distinguishes users</td>
+                    <td>24 hours</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h2 id="third-party">5. Third-Party Cookies</h2>
+        <p>We use services from the following third parties that may set cookies on your device:</p>
+
+        <h3>Firebase (Google)</h3>
+        <p>We use Firebase for authentication, database, and analytics services. Firebase may set cookies to manage your session and collect analytics data. For more information, see <a href="https://firebase.google.com/support/privacy" target="_blank" rel="noopener">Firebase Privacy Policy</a>.</p>
+
+        <h3>Google Analytics</h3>
+        <p>We use Google Analytics to understand how users interact with our service. Google Analytics uses cookies to collect information about your use of our website, which is transmitted to and stored by Google. For more information, see <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google's Privacy Policy</a>.</p>
+        <p>You can opt out of Google Analytics by installing the <a href="https://tools.google.com/dlpage/gaoptout" target="_blank" rel="noopener">Google Analytics Opt-out Browser Add-on</a>.</p>
+
+        <h3>Stripe</h3>
+        <p>For payment processing, we use Stripe. Stripe may set cookies to prevent fraud and process your payments securely. For more information, see <a href="https://stripe.com/privacy" target="_blank" rel="noopener">Stripe's Privacy Policy</a>.</p>
+
+        <h2 id="mobile-app">6. Cookies in Our Mobile App</h2>
+        <p>Our mobile application uses similar technologies to cookies, including:</p>
+        <ul>
+            <li><strong>Local storage:</strong> To store your preferences and cached data for offline access</li>
+            <li><strong>Device identifiers:</strong> For authentication and security purposes</li>
+            <li><strong>Analytics SDKs:</strong> To collect anonymous usage data and improve the app</li>
+        </ul>
+        <p>You can manage these through your device settings or within the app's settings menu.</p>
+
+        <h2 id="managing-cookies">7. Managing Your Cookie Preferences</h2>
+        <p>You have several options for managing cookies:</p>
+
+        <div class="info-box">
+            <p><strong>In-App Settings:</strong> You can manage analytics and non-essential cookies through the app's Settings > Privacy menu.</p>
+        </div>
+
+        <h3>Browser Settings</h3>
+        <p>Most web browsers allow you to control cookies through their settings. You can:</p>
+        <ul>
+            <li>View what cookies are stored on your device</li>
+            <li>Delete individual cookies or all cookies</li>
+            <li>Block third-party cookies</li>
+            <li>Block all cookies (note: this may prevent our service from working properly)</li>
+            <li>Set your browser to notify you when a cookie is being set</li>
+        </ul>
+
+        <h3>Opt-Out Links</h3>
+        <p>You can opt out of specific third-party cookies using these links:</p>
+        <ul>
+            <li><a href="https://tools.google.com/dlpage/gaoptout" target="_blank" rel="noopener">Google Analytics Opt-out</a></li>
+            <li><a href="https://optout.aboutads.info/" target="_blank" rel="noopener">Digital Advertising Alliance Opt-out</a></li>
+            <li><a href="https://optout.networkadvertising.org/" target="_blank" rel="noopener">Network Advertising Initiative Opt-out</a></li>
+        </ul>
+
+        <h2 id="browser-settings">8. Browser-Specific Instructions</h2>
+        <p>Here's how to manage cookies in common browsers:</p>
+        <ul>
+            <li><strong>Chrome:</strong> Settings > Privacy and security > Cookies and other site data</li>
+            <li><strong>Firefox:</strong> Settings > Privacy & Security > Cookies and Site Data</li>
+            <li><strong>Safari:</strong> Preferences > Privacy > Manage Website Data</li>
+            <li><strong>Edge:</strong> Settings > Cookies and site permissions > Manage and delete cookies</li>
+            <li><strong>iOS Safari:</strong> Settings > Safari > Clear History and Website Data</li>
+            <li><strong>Android Chrome:</strong> Settings > Privacy > Clear browsing data</li>
+        </ul>
+
+        <h2 id="do-not-track">9. Do Not Track Signals</h2>
+        <p>Some browsers have a "Do Not Track" (DNT) feature that signals to websites that you do not want to be tracked. We currently respond to DNT signals by disabling non-essential analytics cookies when a DNT signal is detected.</p>
+
+        <h2 id="updates">10. Updates to This Policy</h2>
+        <p>We may update this Cookie Policy from time to time to reflect changes in our practices or for legal, operational, or regulatory reasons. We will post the updated policy on this page with a new "Last Updated" date.</p>
+        <p>We encourage you to review this policy periodically. Significant changes will be communicated through our app or email.</p>
+
+        <h2 id="contact">11. Contact Us</h2>
+        <p>If you have questions about our use of cookies or this Cookie Policy, please contact us:</p>
+
+        <div class="contact-box">
+            <h3>Privacy Team</h3>
+            <p>For cookie-related questions and privacy inquiries</p>
+            <a href="mailto:privacy@lingua-flow.app">privacy@lingua-flow.app</a>
+        </div>
+
+        <p>For general support inquiries, contact: <a href="mailto:support@lingua-flow.app">support@lingua-flow.app</a></p>
+        <p>For legal matters, contact: <a href="mailto:legal@lingua-flow.app">legal@lingua-flow.app</a></p>
+
+        <div class="info-box">
+            <p><strong>Related Policies:</strong> This Cookie Policy should be read together with our <a href="/privacy.html">Privacy Policy</a> and <a href="/terms.html">Terms of Service</a>, which provide additional information about how we collect, use, and protect your information.</p>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-links">
+            <a href="/">Home</a>
+            <a href="/about.html">About</a>
+            <a href="/contact.html">Contact</a>
+            <a href="/privacy.html">Privacy</a>
+            <a href="/terms.html">Terms</a>
+            <a href="/cookies.html">Cookies</a>
+        </div>
+        <p>&copy; 2024 LinguaFlow. All rights reserved.</p>
+    </footer>
+</body>
+</html>

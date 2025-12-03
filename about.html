@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - LinguaFlow</title>
+    <meta name="description" content="Learn about LinguaFlow's mission to make language learning accessible to everyone through AI-powered technology.">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="/images/favicon.png">
+    <link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #3b82f6;
+            --primary-dark: #2563eb;
+            --secondary: #8b5cf6;
+            --accent: #10b981;
+            --dark: #0f172a;
+            --gray: #64748b;
+            --light: #f8fafc;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--light);
+            color: var(--dark);
+            line-height: 1.6;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 1rem 2rem;
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 700;
+            font-size: 1.5rem;
+        }
+
+        .logo img {
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--gray);
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .nav-cta {
+            background: var(--primary);
+            color: white !important;
+            padding: 0.75rem 1.5rem;
+            border-radius: 50px;
+            transition: background 0.2s, transform 0.2s !important;
+        }
+
+        .nav-cta:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 8rem 2rem 4rem;
+            background: linear-gradient(135deg, #eff6ff 0%, #f0fdf4 50%, #faf5ff 100%);
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, var(--dark) 0%, var(--primary) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            color: var(--gray);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* Content Sections */
+        .content-section {
+            padding: 5rem 2rem;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .content-section h2 {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            color: var(--dark);
+        }
+
+        .content-section p {
+            font-size: 1.1rem;
+            color: var(--gray);
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+        }
+
+        /* Mission Section */
+        .mission {
+            background: white;
+            border-radius: 24px;
+            padding: 3rem;
+            margin: 3rem auto;
+            max-width: 900px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.05);
+        }
+
+        .mission h2 {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            text-align: center;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .mission p {
+            font-size: 1.1rem;
+            color: var(--gray);
+            text-align: center;
+            line-height: 1.8;
+        }
+
+        /* Values Grid */
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .value-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 20px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+        }
+
+        .value-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            font-size: 1.75rem;
+        }
+
+        .value-card h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+            color: var(--dark);
+        }
+
+        .value-card p {
+            color: var(--gray);
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+
+        /* Team Section */
+        .team-section {
+            background: linear-gradient(180deg, var(--light) 0%, white 100%);
+            padding: 5rem 2rem;
+        }
+
+        .team-section h2 {
+            font-size: 2rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+
+        .team-section .subtitle {
+            text-align: center;
+            color: var(--gray);
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto 3rem;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            padding: 5rem 2rem;
+            text-align: center;
+        }
+
+        .cta-section h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 1rem;
+        }
+
+        .cta-section p {
+            color: rgba(255,255,255,0.9);
+            font-size: 1.25rem;
+            margin-bottom: 2rem;
+        }
+
+        .cta-btn {
+            display: inline-block;
+            background: white;
+            color: var(--primary);
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
+            font-size: 1.1rem;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .cta-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 3rem 2rem;
+            text-align: center;
+        }
+
+        footer p {
+            color: #64748b;
+            font-size: 0.875rem;
+        }
+
+        footer a {
+            color: #94a3b8;
+            text-decoration: none;
+            margin: 0 1rem;
+        }
+
+        footer a:hover {
+            color: white;
+        }
+
+        .footer-links {
+            margin-bottom: 1.5rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .mission {
+                padding: 2rem;
+                margin: 2rem 1rem;
+            }
+
+            .values-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <a href="/" class="logo">
+                <img src="/images/logo.png" alt="LinguaFlow">
+                LinguaFlow
+            </a>
+            <div class="nav-links">
+                <a href="/#features">Features</a>
+                <a href="/#pricing">Pricing</a>
+                <a href="/privacy.html">Privacy</a>
+                <a href="/terms.html">Terms</a>
+                <a href="/#download" class="nav-cta">Download App</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>About LinguaFlow</h1>
+        <p>We're on a mission to make language learning accessible, engaging, and effective for everyone through the power of artificial intelligence.</p>
+    </section>
+
+    <!-- Mission Section -->
+    <div class="mission">
+        <h2>Our Mission</h2>
+        <p>At LinguaFlow, we believe that language is the bridge that connects cultures, opens opportunities, and enriches lives. Our mission is to break down the barriers to language learning by providing a personalized, AI-powered experience that adapts to each learner's unique needs, goals, and pace.</p>
+    </div>
+
+    <!-- Story Section -->
+    <section class="content-section">
+        <h2>Our Story</h2>
+        <p>LinguaFlow was born from a simple observation: traditional language learning methods weren't working for most people. Static curricula, one-size-fits-all approaches, and lack of real conversation practice left learners frustrated and stuck.</p>
+        <p>We set out to change that by harnessing the latest advances in artificial intelligence. Our platform uses cutting-edge AI to create truly personalized learning experiences that adapt in real-time to how you learn, what you struggle with, and what keeps you motivated.</p>
+        <p>Today, LinguaFlow helps learners around the world achieve their language goals faster and with more enjoyment than ever before. Whether you're learning for travel, career advancement, connecting with family, or personal enrichment, we're here to support your journey.</p>
+    </section>
+
+    <!-- Values Section -->
+    <section class="content-section">
+        <h2>Our Values</h2>
+        <div class="values-grid">
+            <div class="value-card">
+                <div class="value-icon">🎯</div>
+                <h3>Personalization First</h3>
+                <p>Every learner is unique. Our AI adapts to your learning style, pace, and goals to create a truly personalized experience.</p>
+            </div>
+            <div class="value-card">
+                <div class="value-icon">🔬</div>
+                <h3>Science-Backed Methods</h3>
+                <p>Our approach is grounded in cognitive science and language acquisition research, ensuring effective learning outcomes.</p>
+            </div>
+            <div class="value-card">
+                <div class="value-icon">🌍</div>
+                <h3>Global Accessibility</h3>
+                <p>Language learning should be available to everyone, regardless of background, location, or economic status.</p>
+            </div>
+            <div class="value-card">
+                <div class="value-icon">🎮</div>
+                <h3>Joy in Learning</h3>
+                <p>We believe learning should be fun. Our gamified approach keeps you motivated and coming back for more.</p>
+            </div>
+            <div class="value-card">
+                <div class="value-icon">🔒</div>
+                <h3>Privacy & Trust</h3>
+                <p>Your data is yours. We're committed to protecting your privacy and being transparent about how we use information.</p>
+            </div>
+            <div class="value-card">
+                <div class="value-icon">🚀</div>
+                <h3>Continuous Innovation</h3>
+                <p>We're constantly improving our AI and features to provide you with the best possible learning experience.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <h2>Ready to Start Learning?</h2>
+        <p>Join millions of learners who are mastering new languages with LinguaFlow.</p>
+        <a href="/#download" class="cta-btn">Download Free</a>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-links">
+            <a href="/">Home</a>
+            <a href="/about.html">About</a>
+            <a href="/contact.html">Contact</a>
+            <a href="/privacy.html">Privacy</a>
+            <a href="/terms.html">Terms</a>
+            <a href="/cookies.html">Cookies</a>
+        </div>
+        <p>&copy; 2024 LinguaFlow. All rights reserved.</p>
+    </footer>
+</body>
+</html>
